@@ -1,4 +1,10 @@
 BallotInitiatives::Application.routes.draw do
+  resources :clubs
+
+
+  resources :parties
+
+
   resources :people
 
 
