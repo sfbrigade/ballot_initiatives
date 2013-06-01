@@ -8,6 +8,18 @@
 			<li class="<%= 'active' if current_page?(:controller => 'initiatives', :action => 'index')%>">
 				<%= link_to "Initiatives", initiatives_path %>
 			</li>
+			<li class="<%= 'active' if current_page?(:controller => 'issues', :action => 'index')%>">
+				<%= link_to "Issues", initiatives_path %>
+			</li>
+			<li class="<%= 'active' if current_page?(:controller => 'firms', :action => 'index')%>">
+				<%= link_to "Firms", initiatives_path %>
+			</li>
+			<li class="<%= 'active' if current_page?(:controller => 'people', :action => 'index')%>">
+				<%= link_to "People", initiatives_path %>
+			</li>
+			<li class="<%= 'active' if current_page?(:controller => 'consultant_services', :action => 'index')%>">
+				<%= link_to "Consultant Services", initiatives_path %>
+			</li>
     </ul>
   </div>
 </div><!-- end nav-bar-->
