@@ -1,8 +1,11 @@
 class Initiative < ActiveRecord::Base
-  attr_accessible :contributions, :description, :expenditures, :name, :status, :initiativetype, :year, :firm_ids, :issue_ids
-  has_many :consultant_services
-  has_many :firms, :through => :consultant_services
+  attr_accessible :total_expenditures, :total_contributions, :description, :name, :status, :initiativetype, :year, :firm_ids, :issue_ids, :moreinfo, :ballotcode, :supportrate
+  has_many :contracts
+  has_many :firms, :through => :contracts
   has_many :issues
-  accepts_nested_attributes_for :consultant_services, :allow_destroy => true
-  attr_accessible :consultant_services_attributes, :consultant_services
+  has_many :expenditures
+  has_many :contributions
+  has_many :endorsements
+#  accepts_nested_attributes_for :consultant_services, :allow_destroy => true
+#  attr_accessible :consultant_services_attributes, :consultant_services
 end

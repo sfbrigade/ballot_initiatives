@@ -1,4 +1,25 @@
 BallotInitiatives::Application.routes.draw do
+  resources :officials
+
+
+  resources :politicalcommittees
+
+
+  resources :contracts
+
+
+  resources :endorsements
+
+
+  resources :contributions
+
+
+  resources :expenditures
+
+
+  resources :committees
+
+
   resources :clubs
 
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @politicalcommittee.name %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%= @politicalcommittee.issues.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_politicalcommittee_path(@politicalcommittee) %> |
+<%= link_to 'Back', politicalcommittees_path %>

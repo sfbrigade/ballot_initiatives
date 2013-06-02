@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Person:</b>
+  <%= @official.person.name %>
+</p>
+
+<p>
+  <b>Office:</b>
+  <%= @official.office %>
+</p>
+
+<p>
+  <b>Politicalcommittee:</b>
+  <%= @official.politicalcommittees.map(&:name) %>
+</p>
+
+<p>
+  <b>Duties:</b>
+  <%= @official.duties %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%= @official.issues.map(&:name) %>
+</p>
+
+<p>
+  <b>Term begin:</b>
+  <%= @official.term_begin %>
+</p>
+
+<p>
+  <b>Term end:</b>
+  <%= @official.term_end %>
+</p>
+
+<p>
+  <b>Term limit:</b>
+  <%= @official.term_limit %>
+</p>
+
+<p>
+  <b>Next election:</b>
+  <%= @official.next_election %>
+</p>
+
+<p>
+  <b>Firm:</b>
+  <%= @official.firms.map(&:name) %>
+</p>
+
+
+<%= link_to 'Edit', edit_official_path(@official) %> |
+<%= link_to 'Back', officials_path %>

@@ -1,0 +1,49 @@
+<%= form_for(@endorsement) do |f| %>
+  <% if @endorsement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@endorsement.errors.count, "error") %> prohibited this endorsement from being saved:</h2>
+
+      <ul>
+      <% @endorsement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+          <div class="control-group">
+            <%= f.label :initiative_id, "Select an Initiative for this Endorsement", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :initiative_id, Initiative.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+  <div class="field">
+    <%= f.label :supporting %><br />
+    <%= f.check_box :supporting %>
+  </div>
+  <div class="field">
+    <%= f.label :by_club %><br />
+    <%= f.check_box :by_club %>
+  </div>
+   <div class="field">
+          <div class="control-group">
+            <%= f.label :club_id, "Select a Club for this Endorsement", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :club_id, Club.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+         <div class="field">
+          <div class="control-group">
+            <%= f.label :person_id, "Select a Person for this Endorsement", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :person_id, Person.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

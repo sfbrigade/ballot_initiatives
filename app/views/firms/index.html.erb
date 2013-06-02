@@ -1,25 +1,32 @@
+  <div class="row-fluid">
 <h1>Listing firms</h1>
-
-<table>
+ <div class="span12">
+      <div class="span11">
+        <table class="table table-hover">
+          <thead class="unstyled inline">
   <tr>
     <th>Name</th>
-    <th>Serivces</th>
+    <th>Email</th>
+    <th>Phone</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+ </thead>
 <% @firms.each do |firm| %>
+ <tbody class="unstyled inline">
   <tr>
     <td><%= firm.name %></td>
-    <td><%= firm.serivces %></td>
+    <td><%= firm.email %></td>
+    <td><%= firm.phone %></td>
     <td><%= link_to 'Show', firm %></td>
     <td><%= link_to 'Edit', edit_firm_path(firm) %></td>
     <td><%= link_to 'Destroy', firm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Firm', new_firm_path %>
+ </tbody>
+        </table>
+      </div>
+    </div>
+  <span class="btn btn-primary"><%= link_to 'New Firm', new_firm_path %></span>
+  </div>

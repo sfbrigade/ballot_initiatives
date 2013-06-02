@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Initiative:</b>
+  <%= @endorsement.initiative_id %>
+</p>
+
+<p>
+  <b>Supporting:</b>
+  <%= @endorsement.supporting %>
+</p>
+
+<p>
+  <b>Club:</b>
+  <%= @endorsement.club.name %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= @endorsement.person.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_endorsement_path(@endorsement) %> |
+<%= link_to 'Back', endorsements_path %>

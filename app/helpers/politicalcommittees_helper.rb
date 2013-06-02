@@ -1,0 +1,2 @@
+module PoliticalcommitteesHelper
+end

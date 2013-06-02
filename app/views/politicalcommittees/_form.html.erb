@@ -1,0 +1,29 @@
+<%= form_for(@politicalcommittee) do |f| %>
+  <% if @politicalcommittee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@politicalcommittee.errors.count, "error") %> prohibited this politicalcommittee from being saved:</h2>
+
+      <ul>
+      <% @politicalcommittee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+          <div class="control-group">
+            <%= f.label :issue_ids, "Select Issues for this Political Committee", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.select :issue_ids, Issue.all.collect {|x| [x.name]}, {}, :multiple => true %>
+            </div>
+          </div>
+        </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

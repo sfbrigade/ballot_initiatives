@@ -63,25 +63,49 @@
             </div>
           </div>
         </div>
+       <div class="field">
+          <div class="control-group">
+          <%= f.label 'Link to More Info', :class => 'control-label' %>
+            <div class="controls">
+              <%= f.text_field :moreinfo %>
+              </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control-group">
+          <%= f.label 'Support Rate (out of 100)', :class => 'control-label' %>
+            <div class="controls">
+              <%= f.text_field :supportrate %>
+              </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control-group">
+          <%= f.label 'Ballot Code', :class => 'control-label' %>
+            <div class="controls">
+              <%= f.text_field :ballotcode %>
+              </div>
+          </div>
+        </div>
       </div>
     </div> <!-- end span6 -->
     <div class="span6">
       <h4>Financial information</h4>
       <div class="row-fluid">
-        <div class="field">
+      	<div class="field">
           <div class="control-group">
-            <%= f.label :contributions, :class => 'control-label' %>
+          <%= f.label 'Total Contributions', :class => 'control-label' %>
             <div class="controls">
-              <%= f.number_field :contributions %>
-            </div>
+              <%= f.text_field :total_contributions %>
+              </div>
           </div>
         </div>
         <div class="field">
           <div class="control-group">
-            <%= f.label :expenditures, :class => 'control-label' %>
+          <%= f.label 'Total Expenditures', :class => 'control-label' %>
             <div class="controls">
-              <%= f.number_field :expenditures %>
-            </div>
+              <%= f.text_field :total_expenditures %>
+              </div>
           </div>
         </div>
       </div>

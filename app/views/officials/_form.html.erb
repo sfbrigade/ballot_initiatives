@@ -1,0 +1,73 @@
+<%= form_for(@official) do |f| %>
+  <% if @official.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@official.errors.count, "error") %> prohibited this official from being saved:</h2>
+
+      <ul>
+      <% @official.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+          <div class="control-group">
+            <%= f.label :person_id, "Select a Person for this Position", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :person_id, Person.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+  <div class="field">
+    <%= f.label :office %><br />
+    <%= f.text_field :office %>
+  </div>
+   <div class="field">
+          <div class="control-group">
+            <%= f.label :politicalcommittee_id, "Select Political Committees for this Official", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :politicalcommittee_id, Politicalcommittee.all, :id, :name, :multiple => true %>
+            </div>
+          </div>
+        </div>
+  <div class="field">
+    <%= f.label :duties %><br />
+    <%= f.text_field :duties %>
+  </div>
+  <div class="field">
+          <div class="control-group">
+            <%= f.label :issue_id, "Select Issues for this Official", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :issue_id, Issue.all, :id, :name, :multiple => true %>
+            </div>
+          </div>
+        </div>
+  <div class="field">
+    <%= f.label :term_begin %><br />
+    <%= f.date_select :term_begin %>
+  </div>
+  <div class="field">
+    <%= f.label :term_end %><br />
+    <%= f.date_select :term_end %>
+  </div>
+  <div class="field">
+    <%= f.label :term_limit %><br />
+    <%= f.text_field :term_limit %>
+  </div>
+  <div class="field">
+    <%= f.label :next_election %><br />
+    <%= f.date_select :next_election %>
+  </div>
+   <div class="field">
+          <div class="control-group">
+            <%= f.label :firm_id, "Select Consulting Firms for this Official", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :firm_id, Firm.all, :id, :name, :multiple => true %>
+            </div>
+          </div>
+        </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

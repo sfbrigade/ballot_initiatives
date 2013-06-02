@@ -10,8 +10,11 @@
               <th>Type</th>
               <th>Status</th>
               <th>Year</th>
-              <th>Contributions</th>
-              <th>Expenditures</th>
+              <th>Total Contributions</th>
+              <th>Total Expenditures</th>
+              <th>Support Rate</th>
+              <th>Ballot Code</th>
+              <th>More Info</th>
             </tr>
           </thead>
         <% @initiatives.each do |initiative| %>
@@ -22,8 +25,11 @@
               <td><%= initiative.initiativetype %></td>
               <td><%= initiative.status %></td>
               <td><%= initiative.year %></td>
-              <td><%= number_to_currency initiative.contributions %></td>
-              <td><%= number_to_currency initiative.expenditures %></td>
+              <td><%= initiative.total_contributions %></td>
+              <td><%= initiative.total_expenditures %></td>
+              <td><%= initiative.supportrate %></td>
+              <td><%= initiative.ballotcode %></td>
+              <td><%= initiative.moreinfo %></td>
               <td><%= link_to 'Edit', edit_initiative_path(initiative), :class=>'btn' %></td>
               <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' %></td>
             </tr>

@@ -1,0 +1,41 @@
+<div class="row-fluid">
+<h1>Listing endorsements</h1>
+    <div class="span12">
+      <div class="span11">
+        <table class="table table-hover">
+          <thead class="unstyled inline">
+  <tr>
+    <th>Initiative Name</th>
+    <th>In Support?</th>
+    <th>Source</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ </thead>
+<% @endorsements.each do |endorsement| %>
+<tbody class="unstyled inline">
+  <tr>
+    <td><%= endorsement.initiative.name %></td>
+    <td><% if endorsement.supporting %>
+  		Yes
+    	<% else %>
+	    No
+	    <% end %>
+    </td>
+    <td><% if endorsement.by_club %>
+    	<%= endorsement.club.name =%>
+    	<% else %>
+	    <%= endorsement.person.name =%>
+	    <% end %></td>
+    <td><%= link_to 'Show', endorsement %></td>
+    <td><%= link_to 'Edit', edit_endorsement_path(endorsement) %></td>
+    <td><%= link_to 'Destroy', endorsement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+        </table>
+      </div>
+    </div>
+<span class="btn btn-primary"><%= link_to 'New Endorsement', new_endorsement_path %></span>
+</div>

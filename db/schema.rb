@@ -11,12 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601222928) do
+ActiveRecord::Schema.define(:version => 20130602190954) do
 
   create_table "clubs", :force => true do |t|
     t.string   "name"
     t.integer  "party_id"
     t.string   "website"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "committees", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -30,11 +36,50 @@ ActiveRecord::Schema.define(:version => 20130601222928) do
     t.integer  "firm_id"
   end
 
+  create_table "contracts", :force => true do |t|
+    t.integer  "committee_id"
+    t.integer  "firm_id"
+    t.string   "services"
+    t.integer  "amount_promised"
+    t.integer  "amount_received"
+    t.integer  "initiative_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "contributions", :force => true do |t|
+    t.integer  "amount"
+    t.integer  "initiative_id"
+    t.integer  "committee_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "endorsements", :force => true do |t|
+    t.integer  "initiative_id"
+    t.boolean  "supporting"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.boolean  "by_club"
+    t.integer  "club_id"
+    t.integer  "person_id"
+  end
+
+  create_table "expenditures", :force => true do |t|
+    t.integer  "amount"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "initiative_id"
+    t.integer  "committee_id"
+  end
+
   create_table "firms", :force => true do |t|
     t.string   "name"
     t.text     "serivces"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "phone"
+    t.string   "email"
   end
 
   create_table "initiatives", :force => true do |t|
@@ -44,9 +89,16 @@ ActiveRecord::Schema.define(:version => 20130601222928) do
     t.string   "year"
     t.integer  "contributions"
     t.integer  "expenditures"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "initiativetype"
+    t.string   "moreinfo"
+    t.string   "ballotcode"
+    t.string   "supportrate"
+    t.integer  "initiative_id"
+    t.integer  "committee_id"
+    t.integer  "total_contributions"
+    t.integer  "total_expenditures"
   end
 
   create_table "issues", :force => true do |t|
@@ -54,6 +106,21 @@ ActiveRecord::Schema.define(:version => 20130601222928) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "initiative_id"
+  end
+
+  create_table "officials", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "office"
+    t.integer  "politicalcommittee_id"
+    t.string   "duties"
+    t.integer  "issue_id"
+    t.date     "term_begin"
+    t.date     "term_end"
+    t.string   "term_limit"
+    t.date     "next_election"
+    t.integer  "firm_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "parties", :force => true do |t|
@@ -68,6 +135,14 @@ ActiveRecord::Schema.define(:version => 20130601222928) do
     t.string   "website"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "politicalcommittees", :force => true do |t|
+    t.string   "name"
+    t.integer  "issue_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "issue_ids"
   end
 
 end

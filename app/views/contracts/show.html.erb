@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Committee:</b>
+  <%= @contract.committee.name %>
+</p>
+
+<p>
+  <b>Firm:</b>
+  <%= @contract.firm.name %>
+</p>
+
+<p>
+  <b>Services:</b>
+  <%= @contract.services %>
+</p>
+
+<p>
+  <b>Amount promised:</b>
+  <%= @contract.amount_promised %>
+</p>
+
+<p>
+  <b>Amount received:</b>
+  <%= @contract.amount_received %>
+</p>
+
+<p>
+  <b>Initiative:</b>
+  <%= @contract.initiative.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to 'Back', contracts_path %>

@@ -1,0 +1,38 @@
+ <div class="row-fluid">
+<h1>Listing contracts</h1>
+ <div class="span12">
+      <div class="span11">
+        <table class="table table-hover">
+          <thead class="unstyled inline">
+  <tr>
+    <th>Committee</th>
+    <th>Firm</th>
+    <th>Services</th>
+    <th>Amount promised</th>
+    <th>Amount received</th>
+    <th>Initiative</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<% @contracts.each do |contract| %>
+<tbody class="unstyled inline">
+  <tr>
+    <td><%= contract.committee.name %></td>
+    <td><%= contract.firm.name %></td>
+    <td><%= contract.services %></td>
+    <td><%= contract.amount_promised %></td>
+    <td><%= contract.amount_received %></td>
+    <td><%= contract.initiative.name %></td>
+    <td><%= link_to 'Show', contract %></td>
+    <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+    <td><%= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+ </tbody>
+        </table>
+      </div>
+    </div>
+  <span class="btn btn-primary"><%= link_to 'New Contract', new_contract_path %></span>
+  </div>

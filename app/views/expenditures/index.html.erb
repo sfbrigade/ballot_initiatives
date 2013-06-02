@@ -1,0 +1,32 @@
+  <div class="row-fluid">
+<h1>Listing expenditures</h1>
+ <div class="span12">
+      <div class="span11">
+        <table class="table table-hover">
+          <thead class="unstyled inline">
+  <tr>
+    <th>Amount</th>
+    <th>Initiative</th>
+    <th>Committee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ </thead>
+<% @expenditures.each do |expenditure| %>
+<tbody class="unstyled inline">
+  <tr>
+    <td><%= expenditure.amount %></td>
+    <td><%= expenditure.initiative.name %></td>
+    <td><%= expenditure.committee.name %></td>
+    <td><%= link_to 'Show', expenditure %></td>
+    <td><%= link_to 'Edit', edit_expenditure_path(expenditure) %></td>
+    <td><%= link_to 'Destroy', expenditure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+        </table>
+      </div>
+    </div>
+  <span class="btn btn-primary"><%= link_to 'New Expenditure', new_expenditure_path %></span>
+  </div>

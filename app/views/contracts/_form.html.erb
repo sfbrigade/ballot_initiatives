@@ -1,0 +1,53 @@
+<%= form_for(@contract) do |f| %>
+  <% if @contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
+
+      <ul>
+      <% @contract.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+          <div class="control-group">
+            <%= f.label :committee_id, "Select a Committee for this Contract", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :committee_id, Committee.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+  <div class="field">
+          <div class="control-group">
+            <%= f.label :firm_id, "Select a Firm for this Contract", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :firm_id, Firm.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+  <div class="field">
+    <%= f.label :services %><br />
+    <%= f.text_field :services %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_promised %><br />
+    <%= f.number_field :amount_promised %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_received %><br />
+    <%= f.number_field :amount_received %>
+  </div>
+  <div class="field">
+          <div class="control-group">
+            <%= f.label :initiative_id, "Select an Initiative for this Contract", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.collection_select :initiative_id, Initiative.all, :id, :name %>
+            </div>
+          </div>
+        </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
