@@ -19,8 +19,13 @@ cd ballot_initiative
 bundle install
 ```
 
-5) Start your rails server
+5) Migrate your database
+```
+rake db:migrate
+````
+
+6) Start your rails server
 ```
 rails s
 
-6) View your app at http://localhost:3000
+7) View your app at http://localhost:3000
