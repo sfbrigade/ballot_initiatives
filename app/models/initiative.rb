@@ -1,5 +1,5 @@
 class Initiative < ActiveRecord::Base
-  attr_accessible :total_expenditures, :total_contributions, :description, :name, :status, :initiativetype, :year, :firm_ids, :issue_ids, :moreinfo, :ballotcode, :supportrate
+  attr_accessible :total_expenditures, :total_contributions, :description, :name, :status, :initiative_type, :year, :firm_ids, :issue_ids, :more_info, :ballot_code, :support_rate, :yes_votes, :no_votes, :month
   has_many :contracts
   has_many :firms, :through => :contracts
   has_and_belongs_to_many :issues

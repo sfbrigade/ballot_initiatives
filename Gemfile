@@ -8,6 +8,8 @@ gem 'bootstrap-sass', '~> 2.1.0'
 
 group :development do
   gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
 end
 
 group :development, :test do
