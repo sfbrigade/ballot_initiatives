@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627025539) do
+ActiveRecord::Schema.define(:version => 20130703063428) do
 
   create_table "clubs", :force => true do |t|
     t.string   "name"
@@ -90,20 +90,23 @@ ActiveRecord::Schema.define(:version => 20130627025539) do
   create_table "initiatives", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "status"
-    t.string   "year"
+    t.boolean  "status",              :limit => 255
+    t.integer  "year",                :limit => 255
     t.integer  "contributions"
     t.integer  "expenditures"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "initiativetype"
-    t.string   "moreinfo"
-    t.string   "ballotcode"
-    t.string   "supportrate"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "initiative_type"
+    t.string   "more_info"
+    t.string   "ballot_code"
+    t.float    "support_rate",        :limit => 255
     t.integer  "initiative_id"
     t.integer  "committee_id"
     t.integer  "total_contributions"
     t.integer  "total_expenditures"
+    t.integer  "month"
+    t.integer  "yes_votes"
+    t.integer  "no_votes"
   end
 
   create_table "issues", :force => true do |t|
