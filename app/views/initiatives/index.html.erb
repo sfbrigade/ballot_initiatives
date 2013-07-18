@@ -22,14 +22,14 @@
             <tr>
               <td><%= link_to initiative.name, initiative, :class=>'btn btn-link' %></td>
               <td><%= initiative.description %></td>
-              <td><%= initiative.initiativetype %></td>
+              <td><%= initiative.initiative_type %></td>
               <td><%= initiative.status %></td>
               <td><%= initiative.year %></td>
               <td><%= initiative.total_contributions %></td>
               <td><%= initiative.total_expenditures %></td>
-              <td><%= initiative.supportrate %></td>
-              <td><%= initiative.ballotcode %></td>
-              <td><%= initiative.moreinfo %></td>
+              <td><%= initiative.support_rate %></td>
+              <td><%= initiative.ballot_code %></td>
+              <td><%= initiative.more_info %></td>
               <td><%= link_to 'Edit', edit_initiative_path(initiative), :class=>'btn' %></td>
               <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' %></td>
             </tr>

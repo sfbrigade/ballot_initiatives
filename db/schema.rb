@@ -82,11 +82,6 @@ ActiveRecord::Schema.define(:version => 20130703063428) do
     t.string   "email"
   end
 
-  create_table "initiative_issues", :force => true do |t|
-    t.integer "initiative_id"
-    t.integer "issue_id"
-  end
-
   create_table "initiatives", :force => true do |t|
     t.string   "name"
     t.text     "description"
